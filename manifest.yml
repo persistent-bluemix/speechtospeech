@@ -1,0 +1,23 @@
+---
+declared-services:
+  Speech To Text-test:
+    label: speech_to_text
+    plan: standard
+  language-translation-service:
+    label: language_translation
+    plan: standard
+  Text to Speech-test:
+    label: text_to_speech
+    plan: standard	
+applications:
+- name: speech-to-speech-app
+  command: node app.js
+  buildpack: sdk-for-nodejs
+  path: .
+  memory: 256m
+  services:
+  - Speech To Text-test
+  - language-translation-service
+  - Text to Speech-test
+  
+  
